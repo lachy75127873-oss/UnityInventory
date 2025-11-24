@@ -1,12 +1,22 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager Instance { get; private set; }
     private static UIManager instance;
+
+    public static UIManager Instance
+    {
+        get
+        {
+            if (instance == null) instance = FindObjectOfType<UIManager>(); //수정 필요
+            return instance;
+        } 
+        
+    }
     
     [SerializeField]private GameObject mainMenu;
     [SerializeField]private GameObject statusInfo;
@@ -21,12 +31,14 @@ public class UIManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
 
+        //참조 검사
         if (mainMenu == null)
         {
             Debug.Log("UIManager: mainMenu is null");
@@ -46,7 +58,6 @@ public class UIManager : MonoBehaviour
         //초기화
         InitUI();
         Debug.Log("UIManager: Init");
-        
     }
     
 
