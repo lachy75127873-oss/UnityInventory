@@ -22,13 +22,15 @@ public class UIManager : MonoBehaviour
     [SerializeField]private GameObject mainMenu;
     [SerializeField]private GameObject statusInfo;
     [SerializeField]private GameObject inventoryInfo;
+    
+    private UIMainmenu uiMainmenu;
 
-    private GameObject mM;
-    private GameObject sI;
-    private GameObject iI;
+    private GameObject mM; //MainMenu
+    private GameObject sI; //StatusInfo
+    private GameObject iI; //InventoryInfo
 
-    private bool onStatus;
-    private bool onInventory;
+    public bool onStatus;
+    public bool onInventory;
     
     private void Awake()
     {
@@ -77,6 +79,8 @@ public class UIManager : MonoBehaviour
         sI.SetActive(false);
         iI.SetActive(false);
 
+        uiMainmenu = mM.GetComponent<UIMainmenu>();
+        
         onStatus = false; 
         onInventory = false;
     }
@@ -85,12 +89,14 @@ public class UIManager : MonoBehaviour
     {
         onStatus = !onStatus;
         sI.SetActive(onStatus);
+        uiMainmenu.HideButtons(onStatus);
     }
 
     public void ToggleInventoryUI()
     {
         onInventory = !onInventory;
         iI.SetActive(onInventory);
+        uiMainmenu.HideButtons(onInventory);
     }
     
 }

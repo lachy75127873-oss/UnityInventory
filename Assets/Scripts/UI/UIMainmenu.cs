@@ -48,5 +48,11 @@ public class UIMainmenu : MonoBehaviour
         UIManager.Instance.ToggleInventoryUI();
     }
 
+    public void HideButtons(bool isHide)
+    {
+        statusButton.gameObject.SetActive(!isHide);
+        inventoryButton.gameObject.SetActive(!isHide);
+    }
+
     
 }
