@@ -1,18 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIStatus : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Button returnButton;
+
+    private void Start()
     {
-        
+        Init();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Init()
     {
-        
+        returnButton.onClick.AddListener(ReturnMainMenu);
+    }
+
+    private void ReturnMainMenu()
+    {
+        UIManager.Instance.ToggleStatusUI();
     }
 }

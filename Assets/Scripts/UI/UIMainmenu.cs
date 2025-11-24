@@ -8,7 +8,7 @@ public class UIMainmenu : MonoBehaviour
 {
     [SerializeField] private Button statusButton;
     [SerializeField] private Button inventoryButton;
-
+    
     private void Start()
     {
         Init();
@@ -36,17 +36,16 @@ public class UIMainmenu : MonoBehaviour
         
         statusButton.onClick.AddListener(ShowStatusInfo);
         inventoryButton.onClick.AddListener(ShowInventory);    
-        
     }
     
     private void ShowStatusInfo()
     {
-       UIManager.Instance.OpenStatusInfo();
+       UIManager.Instance.ToggleStatusUI();
     }
 
     private void ShowInventory()
     {
-        UIManager.Instance.OpenInventory();
+        UIManager.Instance.ToggleInventoryUI();
     }
 
     

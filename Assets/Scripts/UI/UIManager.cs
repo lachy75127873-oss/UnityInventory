@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
         
     }
     
+    [Header("UI프리팹")]
     [SerializeField]private GameObject mainMenu;
     [SerializeField]private GameObject statusInfo;
     [SerializeField]private GameObject inventoryInfo;
@@ -26,6 +27,9 @@ public class UIManager : MonoBehaviour
     private GameObject sI;
     private GameObject iI;
 
+    private bool onStatus;
+    private bool onInventory;
+    
     private void Awake()
     {
         if (instance == null)
@@ -72,18 +76,21 @@ public class UIManager : MonoBehaviour
         mM.SetActive(true);
         sI.SetActive(false);
         iI.SetActive(false);
+
+        onStatus = false; 
+        onInventory = false;
+    }
+    
+    public void ToggleStatusUI()
+    {
+        onStatus = !onStatus;
+        sI.SetActive(onStatus);
     }
 
-    public void OpenStatusInfo()
+    public void ToggleInventoryUI()
     {
-        Debug.Log("상태창");
-        //sI.SetActive(true);
-    }
-
-    public void OpenInventory()
-    {
-        Debug.Log("인밴토리");
-        //iI.SetActive(true);
+        onInventory = !onInventory;
+        iI.SetActive(onInventory);
     }
     
 }
