@@ -1,13 +1,27 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIMainmenu : MonoBehaviour
 {
+    [Header("Main Menu")]
+    
+    [Header("Buttons")]
     [SerializeField] private Button statusButton;
     [SerializeField] private Button inventoryButton;
+    
+    [Header("Basic Info Text")]
+    [SerializeField] private TextMeshProUGUI nameTxt;
+    [SerializeField] private TextMeshProUGUI rankTxt;
+    [SerializeField] private TextMeshProUGUI descriptionTxt;
+    [SerializeField] private TextMeshProUGUI levelTxt;
+    [SerializeField] private TextMeshProUGUI expTxt;
+    [SerializeField] private TextMeshProUGUI goldTxt;
+    
+    Player player;
     
     private void Start()
     {
@@ -36,6 +50,19 @@ public class UIMainmenu : MonoBehaviour
         
         statusButton.onClick.AddListener(ShowStatusInfo);
         inventoryButton.onClick.AddListener(ShowInventory);    
+        
+        player = GameManager.Instance.player;
+        ShowBasicInfo();
+    }
+
+    private void ShowBasicInfo()
+    {
+        nameTxt.text = player.Name;
+        rankTxt.text = player.Rank;
+        descriptionTxt.text = player.Description;
+        levelTxt.text = player.Level.ToString();
+        expTxt.text = player.Exp.ToString();
+        goldTxt.text = player.Gold.ToString()+ "gold";
     }
     
     private void ShowStatusInfo()
