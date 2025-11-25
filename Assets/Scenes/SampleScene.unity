@@ -406,6 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85e03e47ead7e4ce28d2dc24a19db798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInventory: []
 --- !u!4 &414038813
 Transform:
   m_ObjectHideFlags: 0
