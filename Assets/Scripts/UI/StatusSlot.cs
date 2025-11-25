@@ -17,7 +17,9 @@ public class StatusSlot : MonoBehaviour
 
     public void SetStatInfo()
     {
-        Debug.Log("set stat info");
+        nameTxt.text = statusName;
+        valueTxt.text = statusValue.ToString();
+        //icon.texture = statusIcon.texture;
     }
     
 }

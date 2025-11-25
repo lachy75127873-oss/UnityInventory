@@ -6,9 +6,7 @@ public class UIStatusPanel : MonoBehaviour
 {
     
     [SerializeField] private GameObject slotPrefab;
-
-    private StatusSlot StatusSlot;
-    private int num = 0;
+    
     public void ClearSlot()
     {
         Transform[] childList = transform.GetComponentsInChildren<Transform>();
@@ -22,23 +20,36 @@ public class UIStatusPanel : MonoBehaviour
     public void UpdateSlots()
     {
         Dictionary<string,int> stats = GameManager.Instance.player.PlayerStats;
-        int statCount = stats.Count;
-        
-        for (int i = 0; i < statCount; i++)
-        {
-            GameObject slot = Instantiate(slotPrefab, transform);
-        }
+       
 
-        num = 0;
         foreach (KeyValuePair<string, int> kvp in stats)
         {
-            StatusSlot = transform.GetChild(num).GetComponent<StatusSlot>();
-            Debug.Log($"{num}번째 슬롯에 접근 중");
-            Debug.Log(kvp.Key +":"+kvp.Value);
-            StatusSlot.SetStatInfo();
+            GameObject slot = Instantiate(slotPrefab, transform);
+            StatusSlot StatusSlot =  slot.GetComponent<StatusSlot>();
             
-            num++;
+            StatusSlot.statusName =  kvp.Key;
+            StatusSlot.statusValue = kvp.Value;
+            StatusSlot.SetStatInfo();
         }
+        
+        // int statCount = stats.Count;
+        //
+        // for (int i = 0; i < statCount; i++)
+        // {
+        //     GameObject slot = Instantiate(slotPrefab, transform);
+        //     StatusSlot = slot.GetComponent<StatusSlot>();
+        // }
+        //
+        // num = 0;
+        // foreach (KeyValuePair<string, int> kvp in stats)
+        // {
+        //     StatusSlot = transform.GetChild(num).GetComponent<StatusSlot>();
+        //     Debug.Log($"{num}번째 슬롯에 접근 중");
+        //     Debug.Log(kvp.Key +":"+kvp.Value);
+        //     StatusSlot.SetStatInfo();
+        //     
+        //     num++;
+        // }
         
     }
 }
