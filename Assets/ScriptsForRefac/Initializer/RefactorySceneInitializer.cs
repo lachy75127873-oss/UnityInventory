@@ -8,8 +8,8 @@ public class RefactorySceneInitializer : MonoBehaviour, Initializer
     {
         Debug.Log("RefactorySceneInitializer 가동");
 
+        //초기화 순서 지정
         AboutGameManager();
-        
         AboutUIManager();
     }
     

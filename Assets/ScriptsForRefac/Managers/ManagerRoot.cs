@@ -7,12 +7,18 @@ using UnityEngine.SceneManagement;
 
 public class ManagerRoot :Singleton<ManagerRoot>
 {
+    
+    private DataManager dataManager;
+    
     protected override void Init()
     {
         Debug.Log("Initializing ManagerRoot");
 
         SceneManager.sceneLoaded += InitializeScene;
-
+        
+        dataManager = new DataManager();
+        
+        dataManager.Init();
     }
 
     private void OnDisable()

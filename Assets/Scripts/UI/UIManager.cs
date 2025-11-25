@@ -26,29 +26,29 @@ public class UIManager: Singleton<UIManager>
         Debug.Log("Initializing UIManager");
     }
     
-    private void Awake()
-    {
-        //참조 검사
-        if (mainMenu == null)
-        {
-            Debug.Log("UIManager: mainMenu is null");
-            return;
-        }
-        if (statusInfo == null)
-        {
-            Debug.Log("UIManager: statusInfo is null");
-            return;
-        }
-        if (inventoryInfo == null)
-        {
-            Debug.Log("UIManager: inventoryInfo is null");
-            return;
-        }
-        
-        //초기화
-        InitUI();
-        Debug.Log("UIManager: Init");
-    }
+    // private void Awake()
+    // {
+    //     //참조 검사
+    //     if (mainMenu == null)
+    //     {
+    //         Debug.Log("UIManager: mainMenu is null");
+    //         return;
+    //     }
+    //     if (statusInfo == null)
+    //     {
+    //         Debug.Log("UIManager: statusInfo is null");
+    //         return;
+    //     }
+    //     if (inventoryInfo == null)
+    //     {
+    //         Debug.Log("UIManager: inventoryInfo is null");
+    //         return;
+    //     }
+    //     
+    //     //초기화
+    //     InitUI();
+    //     Debug.Log("UIManager: Init");
+    // }
 
     public void InitUI()
     {

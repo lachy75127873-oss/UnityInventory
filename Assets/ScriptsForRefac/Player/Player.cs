@@ -23,12 +23,6 @@ public class Player : MonoBehaviour
        //  
        //  Initialize();
     }
-
-    public void InitializePlayer()
-    {
-        
-        SetPlayerData();
-    }
     
     
     private void SetPlayerData()
