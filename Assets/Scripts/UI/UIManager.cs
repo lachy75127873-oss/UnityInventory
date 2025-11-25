@@ -4,19 +4,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class UIManager : MonoBehaviour
+public class UIManager:Singleton<UIManager>
 {
-    private static UIManager instance;
-
-    public static UIManager Instance
-    {
-        get
-        {
-            if (instance == null) instance = FindObjectOfType<UIManager>(); //수정 필요
-            return instance;
-        } 
-        
-    }
     
     [Header("UI프리팹")]
     [SerializeField]private GameObject mainMenu;
@@ -32,18 +21,13 @@ public class UIManager : MonoBehaviour
     public bool onStatus;
     public bool onInventory;
     
+    protected override void Init()
+    {
+        Debug.Log("Initializing UIManager");
+    }
+    
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
         //참조 검사
         if (mainMenu == null)
         {
@@ -65,9 +49,8 @@ public class UIManager : MonoBehaviour
         InitUI();
         Debug.Log("UIManager: Init");
     }
-    
 
-    private void InitUI()
+    public void InitUI()
     {
         //그 전에 다른 게임오브젝트 청소
         
