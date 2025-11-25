@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Player : Character
 {
+    public List<Items> playerInventory;
+    
     public Dictionary<string, int> PlayerStats;
     
     private void Awake()
@@ -13,13 +15,18 @@ public class Player : Character
         Debug.Log("플레이어 등록");
         
         PlayerStats = new Dictionary<string, int>();
+        playerInventory = new List<Items>();
+        
         
         Initialize();
     }
 
     private void Start()
     {
-        Debug.Log(Name + Rank + Description);
+        foreach (var item in playerInventory)
+        {
+            Debug.Log(item.Name);
+        }
     }
 
     private void Initialize()
@@ -42,6 +49,16 @@ public class Player : Character
         PlayerStats.Add("Atk", Atk);
         PlayerStats.Add("Def", Def);
         PlayerStats.Add("Speed", Speed);
+
+        SetItem();
+        SetItem();
+        SetItem();
+    }
+
+    private void SetItem()
+    {
+        FirstItem item =  gameObject.AddComponent<FirstItem>(); 
+        playerInventory.Add(item);
     }
     
     
