@@ -18,7 +18,7 @@ public class UIInventoryPanel : MonoBehaviour
 
     public void UpdateSlots()
     {
-        Player player = GameManager.Instance.player;
+        Player player = GameManager.Instance.Player;
         List<Items> pI = player.playerInventory;
 
 

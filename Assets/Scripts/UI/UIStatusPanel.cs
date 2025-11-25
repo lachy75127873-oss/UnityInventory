@@ -19,7 +19,7 @@ public class UIStatusPanel : MonoBehaviour
 
     public void UpdateSlots()
     {
-        Dictionary<string,int> stats = GameManager.Instance.player.PlayerStats;
+        Dictionary<string,int> stats = GameManager.Instance.Player.PlayerStats;
        
 
         foreach (KeyValuePair<string, int> kvp in stats)

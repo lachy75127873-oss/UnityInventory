@@ -51,18 +51,18 @@ public class UIMainmenu : MonoBehaviour
         statusButton.onClick.AddListener(ShowStatusInfo);
         inventoryButton.onClick.AddListener(ShowInventory);    
         
-        player = GameManager.Instance.player;
+        player = GameManager.Instance.Player;
         ShowBasicInfo();
     }
 
     private void ShowBasicInfo()
     {
-        nameTxt.text = player.Name;
-        rankTxt.text = player.Rank;
-        descriptionTxt.text = player.Description;
-        levelTxt.text = player.Level.ToString();
-        expTxt.text = player.Exp.ToString();
-        goldTxt.text = player.Gold.ToString()+ "gold";
+        // nameTxt.text = player.Name;
+        // rankTxt.text = player.Rank;
+        // descriptionTxt.text = player.Description;
+        // levelTxt.text = player.Level.ToString();
+        // expTxt.text = player.Exp.ToString();
+        // goldTxt.text = player.Gold.ToString()+ "gold";
     }
     
     private void ShowStatusInfo()

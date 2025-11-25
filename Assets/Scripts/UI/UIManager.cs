@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class UIManager:Singleton<UIManager>
+public class UIManager: Singleton<UIManager>
 {
     
     [Header("UI프리팹")]

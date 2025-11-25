@@ -25,7 +25,7 @@ public class UIStatus : MonoBehaviour
     {
         returnButton.onClick.AddListener(ReturnMainMenu);
         
-        _player = GameManager.Instance.player;
+        _player = GameManager.Instance.Player;
         statusPanel =  statusInfoPanel.GetComponent<UIStatusPanel>();
         
         UpdatePlayerInfo();
