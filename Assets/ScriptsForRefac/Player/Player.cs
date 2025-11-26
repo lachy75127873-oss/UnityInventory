@@ -5,71 +5,41 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public List<Items> playerInventory;
-    
-    public Dictionary<string, int> PlayerStats;
+    private List<Items> playerInventory;
+    private PlayerData playerData;
 
     private void Awake()
     {
         SetPlayerData();
-        
-        
-       // // GameManager.Instance.player = this;
-       //  Debug.Log("플레이어 등록");
-       //  
-       //  PlayerStats = new Dictionary<string, int>();
-       //  playerInventory = new List<Items>();
-       //  
-       //  
-       //  Initialize();
     }
     
     
     private void SetPlayerData()
     {
-        
         Debug.Log("플레이어 데이터 세팅");
-        
-        //기본 스탯 주입
-        //기본 아이템 지급
-        
+
+        var loadedData = ManagerRoot.Instance.dataManager.LoaPlayerData();
+        if (loadedData != null)
+        {
+            //해당 데이터를 player에게 주입
+            playerData = loadedData;
+            Debug.Log(playerData.name+"/"+playerData.rank+ "/"+playerData.description + "/"+playerData.level + "/"+playerData.exp + "/"+playerData.gold);
+        }
+        else
+        {
+            //플레이어 초기값으로 세팅해라
+            SetFirstPlayer();
+            Debug.Log(playerData.name+"/"+playerData.rank+ "/"+playerData.description + "/"+playerData.level + "/"+playerData.exp + "/"+playerData.gold);
+
+        }
         
     }
 
-    private void Start()
+    private void SetFirstPlayer()
     {
-        // foreach (var item in playerInventory)
-        // {
-        //     Debug.Log(item.Name);
-        // }
+        PlayerData pd = new PlayerData("First", "one", "He is First", 1, 1, 1);
+        playerData = pd;
     }
-    
-
-    // private void Initialize()
-    // {
-    //     Name =  "CDW";
-    //     Rank = "Slave";
-    //     Description = "He is Slave";
-    //     Level = 1;
-    //     Exp = 10;
-    //     Gold = 1000;
-    //     
-    //     HP = 100;
-    //     MP = 100;
-    //     Speed = 10;
-    //     Atk = 5;
-    //     Def = 5;
-    //     
-    //     PlayerStats.Add("Hp", HP);
-    //     PlayerStats.Add("Mp", MP);
-    //     PlayerStats.Add("Atk", Atk);
-    //     PlayerStats.Add("Def", Def);
-    //     PlayerStats.Add("Speed", Speed);
-    //
-    //     SetItem();
-    //     SetItem();
-    //     SetItem();
-    // }
 
     private void SetItem()
     {

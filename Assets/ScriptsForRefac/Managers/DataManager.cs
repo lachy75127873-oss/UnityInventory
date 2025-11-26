@@ -12,7 +12,7 @@ public class DataManager
         Debug.Log("데이터 매니저 초기화");
     }
 
-    public void SaveData(PlayerData data)
+    public void SavePlayerData(PlayerData data)
     {
         string jsonData = JsonConvert.SerializeObject(data);
         string path = Path.Combine(Application.persistentDataPath, "PlayerData.json");
@@ -20,6 +20,7 @@ public class DataManager
         try
         {
             File.WriteAllText(path, jsonData);
+            Debug.Log("저장 경로: " + path);
             Debug.Log("JsonData 저장 성공");
         }
         catch (Exception e)
@@ -28,7 +29,7 @@ public class DataManager
         }
     }
 
-    public void LoadData()
+    public PlayerData LoaPlayerData()
     {
         string path = Path.Combine(Application.persistentDataPath, "PlayerData.json");
 
@@ -38,13 +39,17 @@ public class DataManager
             PlayerData loadedData = JsonConvert.DeserializeObject<PlayerData>(loadedJsonData);
             
             Debug.Log("플레이어 데이터 불러오기 성공");
+            return loadedData;
         }
         else
         {
             Debug.Log("플레이어 데이터 불러오기 실패");
+            return null;
         }
         
     }
+    
+    
     
     
 }
