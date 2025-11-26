@@ -1,0 +1,83 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+
+public class UIManager: Singleton<UIManager>
+{
+    
+    
+    
+    [Header("UI프리팹")]
+    [SerializeField]private GameObject mainMenu;
+    [SerializeField]private GameObject statusInfo;
+    [SerializeField]private GameObject inventoryInfo;
+    [SerializeField]private UIMainmenu uiMainmenu;
+
+    private GameObject mainM;
+    private GameObject statusI;
+    private GameObject inventoryI;
+
+    public bool onStatus;
+    public bool onInventory;
+    
+    protected override void Init()
+    {
+        InitUI();
+        
+        Debug.Log("Initializing UIManager");
+        if (mainMenu == null)
+        {
+            Debug.Log("UIManager: mainMenu is null");
+            return;
+        }
+        if (statusInfo == null)
+        {
+            Debug.Log("UIManager: statusInfo is null");
+            return;
+        }
+        if (inventoryInfo == null)
+        {
+            Debug.Log("UIManager: inventoryInfo is null");
+            return;
+        }
+        
+        Debug.Log("UI준비 완료");
+    }
+
+    public void InitUI()
+    {
+        mainMenu = Resources.Load<GameObject>("Prefabs/UI/UIMainMenu");
+        statusInfo = Resources.Load<GameObject>("Prefabs/UI/Status/UIStatus");
+        inventoryInfo = Resources.Load<GameObject>("Prefabs/UI/Inventory/UIInventory");
+        
+        uiMainmenu = mainMenu.GetComponent<UIMainmenu>();
+        
+        mainM = Instantiate(mainMenu);
+        statusI = Instantiate(statusInfo);
+        inventoryI = Instantiate(inventoryInfo);
+        
+        mainM.SetActive(true);
+        statusI.SetActive(false);
+        inventoryI.SetActive(false);
+        
+         onStatus = false; 
+         onInventory = false;
+    }
+    
+    public void ToggleStatusUI()
+    {
+        // onStatus = !onStatus;
+        // sI.SetActive(onStatus);
+        // uiMainmenu.HideButtons(onStatus);
+    }
+
+    public void ToggleInventoryUI()
+    {
+        // onInventory = !onInventory;
+        // iI.SetActive(onInventory);
+        // uiMainmenu.HideButtons(onInventory);
+    }
+    
+}

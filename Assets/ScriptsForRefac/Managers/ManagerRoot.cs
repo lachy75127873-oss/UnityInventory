@@ -13,6 +13,8 @@ public class ManagerRoot :Singleton<ManagerRoot>
     protected override void Init()
     {
         Debug.Log("Initializing ManagerRoot");
+        
+        DontDestroyOnLoad(gameObject);
 
         SceneManager.sceneLoaded += InitializeScene;
         
