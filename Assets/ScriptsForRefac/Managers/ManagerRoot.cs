@@ -17,7 +17,6 @@ public class ManagerRoot :Singleton<ManagerRoot>
         SceneManager.sceneLoaded += InitializeScene;
         
         dataManager = new DataManager();
-        
         dataManager.Init();
     }
 

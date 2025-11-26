@@ -40,13 +40,4 @@ public class Player : MonoBehaviour
         PlayerData pd = new PlayerData("First", "one", "He is First", 1, 1, 1);
         playerData = pd;
     }
-
-    private void SetItem()
-    {
-        FirstItem item =  gameObject.AddComponent<FirstItem>(); 
-        playerInventory.Add(item);
-    }
-    
-    
-    
 }
