@@ -22,11 +22,11 @@ public class UIMainmenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI goldTxt;
     
     Player player;
-    
-    private void Start()
+
+    private void Awake()
     {
         Init();
-        Debug.Log("UIMainmenu Start");
+        Debug.Log("UIMainmenu Init");
     }
 
     private void OnDisable()
@@ -48,21 +48,28 @@ public class UIMainmenu : MonoBehaviour
             Debug.Log("UIMainMenu inventoryButton is null");
         }
         
+        player = GameManager.Instance.Player;
+        Debug.Log("UI에 플레이어 등록");
+        
         statusButton.onClick.AddListener(ShowStatusInfo);
         inventoryButton.onClick.AddListener(ShowInventory);    
         
-        player = GameManager.Instance.Player;
-        ShowBasicInfo();
+        statusButton.gameObject.SetActive(true);
+        inventoryButton.gameObject.SetActive(true);
+        
+       ShowBasicInfo();
     }
 
     private void ShowBasicInfo()
     {
-        // nameTxt.text = player.Name;
-        // rankTxt.text = player.Rank;
-        // descriptionTxt.text = player.Description;
-        // levelTxt.text = player.Level.ToString();
-        // expTxt.text = player.Exp.ToString();
-        // goldTxt.text = player.Gold.ToString()+ "gold";
+        var playerData =  GameManager.Instance.Player.PlayerData;
+        
+        nameTxt.text = playerData.name;
+        rankTxt.text = playerData.rank;
+        descriptionTxt.text = playerData.description;
+        levelTxt.text = playerData.level.ToString();
+        expTxt.text = playerData.exp.ToString();
+        goldTxt.text = playerData.gold.ToString();
     }
     
     private void ShowStatusInfo()

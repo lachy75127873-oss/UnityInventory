@@ -3,12 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class UIManager: Singleton<UIManager>
 {
-    
-    
-    
     [Header("UI프리팹")]
     [SerializeField]private GameObject mainMenu;
     [SerializeField]private GameObject statusInfo;
@@ -24,6 +22,16 @@ public class UIManager: Singleton<UIManager>
     
     protected override void Init()
     {
+        if (EventSystem.current == null)
+        {
+            Debug.Log("이밴트 시스템이 없습니다.");
+            
+            GameObject newEventSys = new GameObject("EventSystem");
+            EventSystem eventSystem = newEventSys.AddComponent<EventSystem>();
+            eventSystem.AddComponent<StandaloneInputModule>();
+        }
+        else Debug.Log("이밴트 시스템이 있습니다.");
+        
         InitUI();
         
         Debug.Log("Initializing UIManager");
@@ -48,6 +56,8 @@ public class UIManager: Singleton<UIManager>
 
     public void InitUI()
     {
+        
+        
         mainMenu = Resources.Load<GameObject>("Prefabs/UI/UIMainMenu");
         statusInfo = Resources.Load<GameObject>("Prefabs/UI/Status/UIStatus");
         inventoryInfo = Resources.Load<GameObject>("Prefabs/UI/Inventory/UIInventory");
@@ -58,9 +68,9 @@ public class UIManager: Singleton<UIManager>
         statusI = Instantiate(statusInfo);
         inventoryI = Instantiate(inventoryInfo);
         
-        mainM.SetActive(true);
         statusI.SetActive(false);
         inventoryI.SetActive(false);
+        mainM.SetActive(true);
         
          onStatus = false; 
          onInventory = false;
@@ -68,16 +78,16 @@ public class UIManager: Singleton<UIManager>
     
     public void ToggleStatusUI()
     {
-        // onStatus = !onStatus;
-        // sI.SetActive(onStatus);
-        // uiMainmenu.HideButtons(onStatus);
+        onStatus = !onStatus;
+        statusI.SetActive(onStatus);
+        uiMainmenu.HideButtons(onStatus);
     }
 
     public void ToggleInventoryUI()
     {
-        // onInventory = !onInventory;
-        // iI.SetActive(onInventory);
-        // uiMainmenu.HideButtons(onInventory);
+        onInventory = !onInventory;
+        inventoryI.SetActive(onInventory);
+        uiMainmenu.HideButtons(onInventory);
     }
     
 }
