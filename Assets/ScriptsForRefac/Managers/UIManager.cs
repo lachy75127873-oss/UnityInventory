@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 public class UIManager: Singleton<UIManager>
 {
@@ -11,11 +12,11 @@ public class UIManager: Singleton<UIManager>
     [SerializeField]private GameObject mainMenu;
     [SerializeField]private GameObject statusInfo;
     [SerializeField]private GameObject inventoryInfo;
-    [SerializeField]private UIMainmenu uiMainmenu;
 
-    private GameObject mainM;
-    private GameObject statusI;
-    private GameObject inventoryI;
+    public GameObject mainM;
+    public GameObject statusI;
+    public GameObject inventoryI;
+    public UIMainmenu uiMainMenu; 
 
     public bool onStatus;
     public bool onInventory;
@@ -51,18 +52,17 @@ public class UIManager: Singleton<UIManager>
             return;
         }
         
+        uiMainMenu.ReadyMainMenu();
         Debug.Log("UI준비 완료");
     }
 
     public void InitUI()
     {
-        
-        
         mainMenu = Resources.Load<GameObject>("Prefabs/UI/UIMainMenu");
         statusInfo = Resources.Load<GameObject>("Prefabs/UI/Status/UIStatus");
         inventoryInfo = Resources.Load<GameObject>("Prefabs/UI/Inventory/UIInventory");
         
-        uiMainmenu = mainMenu.GetComponent<UIMainmenu>();
+        uiMainMenu = mainMenu.GetComponent<UIMainmenu>();
         
         mainM = Instantiate(mainMenu);
         statusI = Instantiate(statusInfo);
@@ -76,18 +76,18 @@ public class UIManager: Singleton<UIManager>
          onInventory = false;
     }
     
-    public void ToggleStatusUI()
-    {
-        onStatus = !onStatus;
-        statusI.SetActive(onStatus);
-        uiMainmenu.HideButtons(onStatus);
-    }
-
-    public void ToggleInventoryUI()
-    {
-        onInventory = !onInventory;
-        inventoryI.SetActive(onInventory);
-        uiMainmenu.HideButtons(onInventory);
-    }
+    // public void ToggleStatusUI()
+    // {
+    //     onStatus = !onStatus;
+    //     statusI.SetActive(onStatus);
+    //     uiMainMenu.HideButtons(onStatus);
+    // }
+    //
+    // public void ToggleInventoryUI()
+    // {
+    //     onInventory = !onInventory;
+    //     inventoryI.SetActive(onInventory);
+    //     uiMainMenu.HideButtons(onInventory);
+    // }
     
 }

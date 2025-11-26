@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class UIInventory : MonoBehaviour
 {
     [SerializeField] private Button returnButton;
-    
     [SerializeField] private GameObject uiInventoryPanel;
 
     private UIInventoryPanel _uiInventoryPanel;
@@ -26,7 +25,7 @@ public class UIInventory : MonoBehaviour
 
     private void ReturnMainMenu()
     {
-        UIManager.Instance.ToggleInventoryUI();
+        UIManager.Instance.uiMainMenu.ToggleInventory();
     }
     
     private void UpdatePlayerInfo()

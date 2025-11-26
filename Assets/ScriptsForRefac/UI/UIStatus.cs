@@ -15,6 +15,7 @@ public class UIStatus : MonoBehaviour
     
     private Player _player;
     private UIStatusPanel statusPanel;
+    private bool lastStatus;
 
     private void Start()
     {
@@ -24,19 +25,19 @@ public class UIStatus : MonoBehaviour
     private void Init()
     {
         returnButton.onClick.AddListener(ReturnMainMenu);
+
+        lastStatus = UIManager.Instance.onStatus;
         
         _player = GameManager.Instance.Player;
-        statusPanel =  statusInfoPanel.GetComponent<UIStatusPanel>();
         
-        UpdatePlayerInfo();
+        statusPanel =  statusInfoPanel.GetComponent<UIStatusPanel>();
     }
 
     private void ReturnMainMenu()
     {
-        
-        UIManager.Instance.ToggleStatusUI();
+        UIManager.Instance.uiMainMenu.ToggleStatusInfo();
     }
-
+    
     public void UpdatePlayerInfo()
     {
         statusPanel.ClearSlot();
