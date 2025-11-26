@@ -6,6 +6,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public PlayerData PlayerData
+    {
+        get => playerData;
+        set => playerData = value;
+    }
     private PlayerData playerData;
 
     private Dictionary<int, int> playerInventory;
