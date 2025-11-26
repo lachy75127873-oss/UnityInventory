@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class ManagerRoot :Singleton<ManagerRoot>
 {
-    
+    [SerializeField] private ItemDataBase itemDataBase;
     public DataManager dataManager;
     
     protected override void Init()
@@ -18,6 +18,8 @@ public class ManagerRoot :Singleton<ManagerRoot>
         
         dataManager = new DataManager();
         dataManager.Init();
+        
+        itemDataBase.Init();
     }
 
     private void OnDisable()

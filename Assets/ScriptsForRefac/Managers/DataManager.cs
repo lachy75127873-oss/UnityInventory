@@ -10,16 +10,6 @@ public class DataManager
     public void Init()
     {
         Debug.Log("데이터 매니저 초기화");
-        // //아이템 데이터 세팅
-        // var loadedItemData = LoadItemData();
-        // if (loadedItemData != null)
-        // {
-        //     
-        // }
-        // else
-        // {
-        //     //초기 아이템 데이터 세팅
-        // }
     }
 
     //저장 로직 위치 고민

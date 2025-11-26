@@ -20,3 +20,4 @@ public enum ItemType
     Speed,
     Critical
 }
+

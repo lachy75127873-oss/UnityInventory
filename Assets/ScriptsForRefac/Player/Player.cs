@@ -1,19 +1,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private List<Items> playerInventory;
     private PlayerData playerData;
+    
+    private Dictionary<int , int>  playerInventory = new ();
 
     private void Awake()
     {
         SetPlayerData();
+        SetPlayerInventory();
     }
-    
-    
+
+    #region 플레이어 초기화
+
     private void SetPlayerData()
     {
         Debug.Log("플레이어 데이터 세팅");
@@ -32,7 +36,7 @@ public class Player : MonoBehaviour
             Debug.Log(playerData.name+"/"+playerData.rank+ "/"+playerData.description + "/"+playerData.level + "/"+playerData.exp + "/"+playerData.gold);
 
         }
-        
+
     }
 
     private void SetFirstPlayer()
@@ -40,4 +44,20 @@ public class Player : MonoBehaviour
         PlayerData pd = new PlayerData("First", "one", "He is First", 1, 1, 1);
         playerData = pd;
     }
+
+    #endregion
+    
+    private void SetPlayerInventory()
+    {
+        // Debug.Log("오브젝트 탐색");
+        // IEnumerable<Item> items = FindObjectsOfType<MonoBehaviour>().OfType<Item>();
+        // if(items == null )Debug.Log("오브젝트 탐색 실패");
+        // foreach (var item in items)
+        // {
+        //     Debug.Log(item.name);
+        // }
+        
+    }
 }
+
+
