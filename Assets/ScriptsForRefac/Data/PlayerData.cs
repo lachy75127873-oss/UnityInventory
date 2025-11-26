@@ -1,4 +1,6 @@
 
+using System.Collections.Generic;
+
 [System.Serializable]
 public class PlayerData
 {
@@ -18,4 +20,6 @@ public class PlayerData
     public int level;
     public int exp;
     public int gold;
+    
+    public List<int> itemsData = new List<int>();
 }

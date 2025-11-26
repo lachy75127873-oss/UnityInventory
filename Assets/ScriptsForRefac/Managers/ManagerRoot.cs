@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class ManagerRoot :Singleton<ManagerRoot>
 {
     
-    private DataManager dataManager;
+    public DataManager dataManager;
     
     protected override void Init()
     {
