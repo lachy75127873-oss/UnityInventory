@@ -28,10 +28,8 @@ public class UIMainmenu : MonoBehaviour
     private bool _onInventory;
     private UIManager uiM;
 
-    private void OnDisable()
+    private void Awake()
     {
-        statusButton.onClick.RemoveAllListeners();
-        inventoryButton.onClick.RemoveAllListeners();
     }
 
     public void ReadyMainMenu()
