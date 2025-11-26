@@ -18,7 +18,6 @@ public class ManagerRoot :Singleton<ManagerRoot>
         
         dataManager = new DataManager();
         dataManager.Init();
-        
         itemDataBase.Init();
     }
 

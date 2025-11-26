@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Armor
   itemType: 1
   description: DDanDDanHae
-  idx: 2
+  idx: 1001
   value: 15
   icon: {fileID: 0}

@@ -7,13 +7,12 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private PlayerData playerData;
-    
-    private Dictionary<int , int>  playerInventory = new ();
+
+    private Dictionary<int, int> playerInventory;
 
     private void Awake()
     {
         SetPlayerData();
-        SetPlayerInventory();
     }
 
     #region 플레이어 초기화
@@ -34,28 +33,31 @@ public class Player : MonoBehaviour
             //플레이어 초기값으로 세팅해라
             SetFirstPlayer();
             Debug.Log(playerData.name+"/"+playerData.rank+ "/"+playerData.description + "/"+playerData.level + "/"+playerData.exp + "/"+playerData.gold);
-
         }
 
     }
 
     private void SetFirstPlayer()
     {
-        PlayerData pd = new PlayerData("First", "one", "He is First", 1, 1, 1);
+        playerInventory = new Dictionary<int, int>();
+        PlayerData pd = new PlayerData("First", "one", "He is First", 1, 1, 1, playerInventory);
         playerData = pd;
+        SetPlayerInventory();
     }
 
     #endregion
     
     private void SetPlayerInventory()
     {
-        // Debug.Log("오브젝트 탐색");
-        // IEnumerable<Item> items = FindObjectsOfType<MonoBehaviour>().OfType<Item>();
-        // if(items == null )Debug.Log("오브젝트 탐색 실패");
-        // foreach (var item in items)
-        // {
-        //     Debug.Log(item.name);
-        // }
+        playerInventory.Add(ItemDataBase.Instance.GetItem(1001).idx,1);
+        playerInventory.Add(ItemDataBase.Instance.GetItem(1002).idx,1);
+        playerInventory.Add(ItemDataBase.Instance.GetItem(1003).idx,1);
+        playerInventory.Add(ItemDataBase.Instance.GetItem(1004).idx,1);
+
+        foreach (var kv in playerInventory)
+        {
+            Debug.Log(kv.Key+"/"+kv.Value);
+        }
         
     }
 }

@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Shoes
   itemType: 2
   description: Shoes is fast
-  idx: 3
+  idx: 1003
   value: 10
   icon: {fileID: 0}

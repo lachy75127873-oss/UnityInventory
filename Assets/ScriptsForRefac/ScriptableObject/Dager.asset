@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Dager
   itemType: 3
   description: Dager is Dager
-  idx: 1
+  idx: 1002
   value: 10
   icon: {fileID: 0}
