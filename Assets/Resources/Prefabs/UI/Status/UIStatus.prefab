@@ -336,15 +336,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: Status Info
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 33ff40c3ccd2b4de6aeff8d60e370b6a, type: 2}
+  m_sharedMaterial: {fileID: 7346808940688024825, guid: 33ff40c3ccd2b4de6aeff8d60e370b6a,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4279506020
+  m_fontColor: {r: 0.39215687, g: 0.078431375, b: 0.078431375, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -361,8 +362,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -597,7 +598,11 @@ PrefabInstance:
       value: InfoPanel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 675992936334337636, guid: 914d82a6dde9b423b8891f52b1694983, type: 3}
+    - {fileID: 5211231251662539392, guid: 914d82a6dde9b423b8891f52b1694983, type: 3}
+    - {fileID: 384596620717466419, guid: 914d82a6dde9b423b8891f52b1694983, type: 3}
+    - {fileID: 5727478532228087258, guid: 914d82a6dde9b423b8891f52b1694983, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 914d82a6dde9b423b8891f52b1694983, type: 3}
