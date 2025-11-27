@@ -9,7 +9,7 @@ public class InventorySlot : MonoBehaviour
     [SerializeField] private RawImage slotImage;
     [SerializeField] private Button slotButton;
 
-    private ItemDataBase iDb;
+    private ItemData itemData;
 
     private void OnEnable()
     {
@@ -23,13 +23,12 @@ public class InventorySlot : MonoBehaviour
 
     public void SetItemInfo(int itemID)
     {
-        var itemData = ItemDataBase.Instance.GetItem(itemID);
-        Debug.Log(itemData.idx+ "참조 ");
+        itemData = ItemDataBase.Instance.GetItem(itemID);
     }
 
     public void ShowItemInfo()
     {
-        
+        Debug.Log(itemData.idx + " " + itemData.name +  " " + itemData.itemType + " " + itemData.description);
     }
     
 }
