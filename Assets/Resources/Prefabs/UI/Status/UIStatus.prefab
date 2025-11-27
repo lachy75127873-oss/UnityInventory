@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusInfoPanel: {fileID: 7664618426849157332}
+  statusPanel: {fileID: 4661366740932606370}
 --- !u!1 &4608612774473463983
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,7 +287,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -20.5026, y: 10.8339}
+  m_AnchoredPosition: {x: -20.502625, y: 10.8339}
   m_SizeDelta: {x: 231.4165, y: 300.5177}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &4860075908871086438
@@ -506,6 +507,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1264499394393253545}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4661366740932606370 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5853807763865083659, guid: 914d82a6dde9b423b8891f52b1694983,
+    type: 3}
+  m_PrefabInstance: {fileID: 1264499394393253545}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7664618426849157332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cffaaa388fa64b2d91f439ed69217e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7664618426849157332 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8922289083993048701, guid: 914d82a6dde9b423b8891f52b1694983,

@@ -13,6 +13,14 @@ public class Player : MonoBehaviour
     }
     private PlayerData playerData;
 
+    public PlayerCondition PlayerCondition
+    {
+        get => playerCondition;
+        set => playerCondition = value;
+    }
+    private PlayerCondition playerCondition ;
+    
+
     private Dictionary<int, int> playerInventory;
 
     private void Awake()
@@ -47,7 +55,9 @@ public class Player : MonoBehaviour
         playerInventory = new Dictionary<int, int>();
         PlayerData pd = new PlayerData("First", "one", "He is First", 1, 1, 1, playerInventory);
         playerData = pd;
+        
         SetPlayerInventory();
+        SetBasicPlayerCondition();
     }
 
     #endregion
@@ -63,8 +73,26 @@ public class Player : MonoBehaviour
         {
             Debug.Log(kv.Key+"/"+kv.Value);
         }
-        
     }
+
+    private void SetBasicPlayerCondition()
+    {
+        var pCd = new PlayerCondition();
+        pCd.SetStat("Hp",100);
+        pCd.SetStat("Mp",20);
+        pCd.SetStat("Atk",15);
+        pCd.SetStat("Def",10);
+        playerCondition = pCd;
+    }
+
+    private void SetPlayerCondition()
+    {
+        /*
+         * 기본 스탯에 
+         * 인벤토리-장비 장착 상태에 따른 스탯 변화 반영 매서드
+         */ 
+    }
+    
 }
 
 
