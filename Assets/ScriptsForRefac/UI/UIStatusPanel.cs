@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,8 +5,6 @@ public class UIStatusPanel : MonoBehaviour
 {
     
     [SerializeField] private GameObject slotPrefab;
-    
-    private StatImageData imageData;
     
     public void ClearSlot()
     {
@@ -21,7 +18,6 @@ public class UIStatusPanel : MonoBehaviour
 
     public void UpdateSlots()
     {
-        imageData = UIManager.Instance.uiStatImageData;
         
         var pCd = GameManager.Instance.Player.PlayerCondition;
         Dictionary<string,int> stats = GameManager.Instance.Player.PlayerCondition.conditions;
@@ -33,7 +29,6 @@ public class UIStatusPanel : MonoBehaviour
             
             StatusSlot.statusName =  kvp.Key;
             StatusSlot.statusValue = kvp.Value; ;
-          //  StatusSlot.statusIcon = imageData[kvp.Key];
             StatusSlot.SetStatInfo();
         }
     }

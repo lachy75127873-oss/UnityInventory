@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -77,11 +74,6 @@ public class Player : MonoBehaviour
         playerInventory.Add(ItemDataBase.Instance.GetItem(1002).idx,1);
         playerInventory.Add(ItemDataBase.Instance.GetItem(1003).idx,1);
         playerInventory.Add(ItemDataBase.Instance.GetItem(1004).idx,1);
-
-        // foreach (var kv in playerInventory)
-        // {
-        //     Debug.Log(kv.Key+"/"+kv.Value);
-        // }
     }
     
     //플레이어 기본 스텟 설정

@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,9 +19,6 @@ public class UIMainmenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI expTxt;
     [SerializeField] private TextMeshProUGUI goldTxt;
     
-    Player player;
-    
-    
     private bool _onStatus;
     private bool _onInventory;
     private UIManager uiM;
@@ -33,15 +27,14 @@ public class UIMainmenu : MonoBehaviour
     {
         Init();
         Debug.Log("UIMainMenu Init");
-        
     }
 
+    //메인메뉴 초기화
     private void Init()
     {
         if (statusButton == null) Debug.Log("UIMainMenu statusButton is null");
         if (inventoryButton == null) Debug.Log("UIMainMenu inventoryButton is null");
         
-        player = GameManager.Instance.Player;
         Debug.Log("UI에 플레이어 등록");
 
         uiM = UIManager.Instance;
@@ -57,6 +50,7 @@ public class UIMainmenu : MonoBehaviour
        ShowBasicInfo();
     }
 
+    //메인메뉴 기본 정보
     private void ShowBasicInfo()
     {
         var playerData =  GameManager.Instance.Player.PlayerData;
@@ -69,6 +63,7 @@ public class UIMainmenu : MonoBehaviour
         goldTxt.text = playerData.gold.ToString();
     }
 
+    //버튼 전환
     public void ToggleBtns()
     {
         var isOn = uiM.onStatus || uiM.onInventory;
