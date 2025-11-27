@@ -14,10 +14,12 @@ public class UIManager: Singleton<UIManager>
     [SerializeField]private GameObject statusInfoPrefab;
     [SerializeField]private GameObject inventoryInfoPrefab;
 
-    public GameObject mainM;
-    public GameObject statusI;
-    public GameObject inventoryI;
-    public UIMainmenu uiMainMenu; 
+    private GameObject mainM;
+    private GameObject statusI;
+    private GameObject inventoryI;
+    private UIMainmenu uiMainMenu; 
+    private UIStatus uiStatus;
+    private UIInventory  uiInventory;
 
     public bool onStatus;
     public bool onInventory;
@@ -83,6 +85,10 @@ public class UIManager: Singleton<UIManager>
         
         //메인메뉴 참조
         uiMainMenu = mainM.GetComponent<UIMainmenu>();
+        
+        uiStatus = statusI.GetComponent<UIStatus>();
+        uiInventory = inventoryI.GetComponent<UIInventory>();
+        
     }
 
     #endregion
@@ -92,6 +98,7 @@ public class UIManager: Singleton<UIManager>
     public void ToggleStatusInfo()
     {
         onStatus = !onStatus;
+        if(onStatus)uiStatus.UpdatePlayerInfo();
         statusI.SetActive(onStatus);
         uiMainMenu.ToggleBtns();
     }
@@ -99,6 +106,7 @@ public class UIManager: Singleton<UIManager>
     public void ToggleInventoryInfo()
     {
         onInventory = !onInventory;
+        if(onInventory)uiInventory.UpdatePlayerInfo();
         inventoryI.SetActive(onInventory);
         uiMainMenu.ToggleBtns();
     }

@@ -10,25 +10,7 @@ public class UIStatus : MonoBehaviour
     [Header("ReturnButton")]
     
     [Header("Status Info")]
-    [SerializeField] private GameObject statusInfoPanel;
-    
-    private Player _player;
-    private UIStatusPanel statusPanel;
-    private bool lastStatus;
-
-    private void Start()
-    {
-        Init();
-    }
-
-    private void Init()
-    {
-        lastStatus = UIManager.Instance.onStatus;
-        
-        _player = GameManager.Instance.Player;
-        
-        statusPanel =  statusInfoPanel.GetComponent<UIStatusPanel>();
-    }
+    [SerializeField]private UIStatusPanel statusPanel;
 
     private void ReturnMainMenu()
     {

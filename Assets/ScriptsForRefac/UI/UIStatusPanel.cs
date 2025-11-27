@@ -19,20 +19,17 @@ public class UIStatusPanel : MonoBehaviour
 
     public void UpdateSlots()
     {
-        // Dictionary<string,int> stats = GameManager.Instance.Player.PlayerStats;
-        //
-        //
-        // foreach (KeyValuePair<string, int> kvp in stats)
-        // {
-        //     GameObject slot = Instantiate(slotPrefab, transform);
-        //     StatusSlot StatusSlot =  slot.GetComponent<StatusSlot>();
-        //     
-        //     StatusSlot.statusName =  kvp.Key;
-        //     StatusSlot.statusValue = kvp.Value;
-        //     StatusSlot.SetStatInfo();
-        // }
+        var pCd = GameManager.Instance.Player.PlayerCondition;
+        Dictionary<string,int> stats = GameManager.Instance.Player.PlayerCondition.conditions;
         
-       
-        
+        foreach (KeyValuePair<string, int> kvp in stats)
+        {
+            GameObject slot = Instantiate(slotPrefab, transform);
+            StatusSlot StatusSlot =  slot.GetComponent<StatusSlot>();
+            
+            StatusSlot.statusName =  kvp.Key;
+            StatusSlot.statusValue = kvp.Value;
+            StatusSlot.SetStatInfo();
+        }
     }
 }
