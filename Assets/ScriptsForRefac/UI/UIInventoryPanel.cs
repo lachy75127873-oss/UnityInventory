@@ -18,16 +18,15 @@ public class UIInventoryPanel : MonoBehaviour
 
     public void UpdateSlots()
     {
-        Player player = GameManager.Instance.Player;
-        //List<Items> pI = player.playerInventory;
-
-
-        // foreach (Items item in pI)
-        // {
-        //     GameObject slot = Instantiate(slotPrefab, transform);
-        //     var itemSlot = slot.GetComponent<InventorySlot>();
-        //     
-        //     itemSlot.SetItemInfo();
-        // }
+        var pI = GameManager.Instance.Player.PlayerInventory;
+        
+         foreach (KeyValuePair<int,int> kv in pI)
+         {
+             GameObject slot = Instantiate(slotPrefab, transform);
+             var itemSlot = slot.GetComponent<InventorySlot>();
+             
+             Debug.Log(kv.Key + " " + kv.Value);
+             itemSlot.SetItemInfo(kv.Key);
+         }
     }
 }

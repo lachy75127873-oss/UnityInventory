@@ -19,8 +19,13 @@ public class Player : MonoBehaviour
         set => playerCondition = value;
     }
     private PlayerCondition playerCondition ;
-    
 
+
+    public Dictionary<int, int> PlayerInventory
+    {
+        get => playerInventory;
+        set => playerInventory = value;
+    }
     private Dictionary<int, int> playerInventory;
 
     private void Awake()
@@ -69,10 +74,10 @@ public class Player : MonoBehaviour
         playerInventory.Add(ItemDataBase.Instance.GetItem(1003).idx,1);
         playerInventory.Add(ItemDataBase.Instance.GetItem(1004).idx,1);
 
-        foreach (var kv in playerInventory)
-        {
-            Debug.Log(kv.Key+"/"+kv.Value);
-        }
+        // foreach (var kv in playerInventory)
+        // {
+        //     Debug.Log(kv.Key+"/"+kv.Value);
+        // }
     }
 
     private void SetBasicPlayerCondition()
