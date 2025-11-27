@@ -40,6 +40,8 @@ public class GameManager : Singleton<GameManager>
             Debug.Log("플레이어 생성완료");
         }
         
+        GameObject cameraOrbitPrefab = Resources.Load<GameObject>("Prefabs/Camera/CameraOrbit");
+        var cameraOrbitObject = Instantiate(cameraOrbitPrefab);
     }
     
     //종료 시 데이터 저장
