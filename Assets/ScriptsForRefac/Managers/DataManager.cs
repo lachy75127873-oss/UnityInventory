@@ -12,7 +12,7 @@ public class DataManager
         Debug.Log("데이터 매니저 초기화");
     }
 
-    //저장 로직 위치 고민
+    #region 플레이어 데이터 로드/저장
     public void SavePlayerData(PlayerData data)
     {
         string jsonData = JsonConvert.SerializeObject(data);
@@ -48,7 +48,12 @@ public class DataManager
             return null;
         }
     }
-    
+
+
+    #endregion
+
+    #region 아이템 데이터 제이슨 로드 대비
+
     public void SaveItemData(ItemData data)
     {
         string jsonData = JsonConvert.SerializeObject(data);
@@ -85,6 +90,9 @@ public class DataManager
         }
         
     }
+    
+
+    #endregion
     
     
     

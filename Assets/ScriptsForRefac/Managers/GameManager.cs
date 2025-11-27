@@ -40,4 +40,12 @@ public class GameManager : Singleton<GameManager>
         
     }
     
+    //종료 시 데이터 저장
+    #if UNITY_EDITOR
+    private void OnApplicationQuit()
+    {
+        ManagerRoot.Instance.dataManager.SavePlayerData(player.PlayerData);
+        Debug.Log("저장 완료");
+    }
+    #endif
 }
