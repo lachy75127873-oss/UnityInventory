@@ -23,14 +23,16 @@ public class GameManager : Singleton<GameManager>
         InspectPlayer();
         
     }
-
+    
     private void InspectPlayer()
     {
         if (player == null)
         {
             //플레이어 객체가 없을 경우
-            GameObject newPlayer = new GameObject("Player");
-            player = newPlayer.AddComponent<Player>();
+            //GameObject newPlayer = new GameObject("Player");
+            GameObject newPlayerPrefab = Resources.Load<GameObject>("Prefabs/Player/Player"); 
+            var playerObject = Instantiate(newPlayerPrefab);
+            player = playerObject.AddComponent<Player>();
             Debug.Log("플레이어 생성완료");
         }
         else
