@@ -17,4 +17,4 @@ MonoBehaviour:
   description: Dager is Dager
   idx: 1002
   value: 10
-  icon: {fileID: 0}
+  icon: {fileID: -1362323273, guid: e47e09af16638444081ee0a9e6c8b192, type: 3}

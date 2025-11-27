@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class InventorySlot : MonoBehaviour
 {
     [SerializeField] private Button slotButton;
-    [SerializeField] private RawImage slotImage;
-    [SerializeField] private RawImage equipImage;
+    [SerializeField] private Image slotImage;
+    [SerializeField] private Image equipImage;
 
     private ItemData itemData;
 
@@ -25,6 +25,8 @@ public class InventorySlot : MonoBehaviour
     public void SetItemInfo(int itemID)
     {
         itemData = ItemDataBase.Instance.GetItem(itemID);
+       slotImage.sprite = itemData.icon;
+        
     }
 
     public void ShowItemInfo()
