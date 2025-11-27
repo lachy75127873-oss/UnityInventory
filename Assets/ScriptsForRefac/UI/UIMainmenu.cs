@@ -12,6 +12,7 @@ public class UIMainmenu : MonoBehaviour
     [Header("Buttons")]
     [SerializeField] private Button statusButton;
     [SerializeField] private Button inventoryButton;
+    [SerializeField] private Button returnBtn;
     
     [Header("Basic Info Text")]
     [SerializeField] private TextMeshProUGUI nameTxt;
@@ -27,10 +28,6 @@ public class UIMainmenu : MonoBehaviour
     private bool _onStatus;
     private bool _onInventory;
     private UIManager uiM;
-
-    private void Awake()
-    {
-    }
 
     public void ReadyMainMenu()
     {
@@ -48,21 +45,16 @@ public class UIMainmenu : MonoBehaviour
         Debug.Log("UI에 플레이어 등록");
 
         uiM = UIManager.Instance;
-        _onStatus = uiM.onStatus;
-        _onInventory = uiM.onInventory;
         
-        // Button[] buttons = GetComponentsInChildren<Button>();
-        // for (int i = 0; i < buttons.Length; i++)
-        // {
-        //     if (buttons[i].name == "StatusBtn") statusButton = buttons[i];
-        //     else if (buttons[i].name == "InventoryBtn") inventoryButton = buttons[i];
-        // } 
+        statusButton.onClick.AddListener(uiM.ToggleStatusInfo);
         
-        statusButton.onClick.AddListener(ToggleStatusInfo);
-        inventoryButton.onClick.AddListener(ToggleInventory);    
+        inventoryButton.onClick.AddListener(uiM.ToggleInventoryInfo);
+        
+        returnBtn.onClick.AddListener(uiM.ReturnToMainMenu);
         
         statusButton.gameObject.SetActive(true);
         inventoryButton.gameObject.SetActive(true);
+        returnBtn.gameObject.SetActive(false);
         
        ShowBasicInfo();
     }
@@ -78,27 +70,15 @@ public class UIMainmenu : MonoBehaviour
         expTxt.text = playerData.exp.ToString();
         goldTxt.text = playerData.gold.ToString();
     }
-    
-    public void ToggleStatusInfo()
-    {
-        Debug.Log("Click");
-        var isOpen = uiM.onStatus;
-        statusButton.gameObject.SetActive(isOpen);
-        inventoryButton.gameObject.SetActive(isOpen);
-        
-        if (isOpen) uiM.statusI.SetActive(!isOpen);
-        else uiM.statusI.SetActive(isOpen);
-        
-        isOpen = !isOpen;
-        uiM.onStatus = isOpen;
-    }
 
-    public void ToggleInventory()
+    public void ToggleBtns()
     {
-        _onInventory = !_onInventory;
-        statusButton.gameObject.SetActive(!_onInventory);
-        inventoryButton.gameObject.SetActive(!_onInventory);
-        uiM.inventoryI.gameObject.SetActive(_onInventory);
-        uiM.onInventory = _onInventory;
+        var isOn = uiM.onStatus || uiM.onInventory;
+        returnBtn.gameObject.SetActive(isOn);
+        
+        statusButton.gameObject.SetActive(!isOn);
+        inventoryButton.gameObject.SetActive(!isOn);
     }
+    
+    
 }

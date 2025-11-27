@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class UIStatus : MonoBehaviour
 {
     [Header("ReturnButton")]
-    [SerializeField] private Button returnButton;
     
     [Header("Status Info")]
     [SerializeField] private GameObject statusInfoPanel;
@@ -24,8 +23,6 @@ public class UIStatus : MonoBehaviour
 
     private void Init()
     {
-        returnButton.onClick.AddListener(ReturnMainMenu);
-
         lastStatus = UIManager.Instance.onStatus;
         
         _player = GameManager.Instance.Player;
@@ -35,7 +32,7 @@ public class UIStatus : MonoBehaviour
 
     private void ReturnMainMenu()
     {
-        UIManager.Instance.uiMainMenu.ToggleStatusInfo();
+        UIManager.Instance.ToggleStatusInfo();
     }
     
     public void UpdatePlayerInfo()
