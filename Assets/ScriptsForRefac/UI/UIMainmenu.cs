@@ -47,9 +47,7 @@ public class UIMainmenu : MonoBehaviour
         uiM = UIManager.Instance;
         
         statusButton.onClick.AddListener(uiM.ToggleStatusInfo);
-        
         inventoryButton.onClick.AddListener(uiM.ToggleInventoryInfo);
-        
         returnBtn.onClick.AddListener(uiM.ReturnToMainMenu);
         
         statusButton.gameObject.SetActive(true);

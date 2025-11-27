@@ -20,6 +20,8 @@ public class UIManager: Singleton<UIManager>
     private UIMainmenu uiMainMenu; 
     private UIStatus uiStatus;
     private UIInventory  uiInventory;
+    
+    public StatImageData uiStatImageData;
 
     public bool onStatus;
     public bool onInventory;
@@ -58,6 +60,10 @@ public class UIManager: Singleton<UIManager>
             Debug.Log("UIManager: inventoryInfo is null");
             return;
         }
+        
+        // //스텟 이미지 데이터 준비
+        // uiStatImageData =  new StatImageData();
+        // uiStatImageData.InitImages();
         
         //메인메뉴 객체에 신호
         uiMainMenu.ReadyMainMenu();
