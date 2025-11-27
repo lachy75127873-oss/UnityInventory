@@ -123,8 +123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92550702a151e42c98e3bd68ce580071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotImage: {fileID: 3292480219397684820}
   slotButton: {fileID: 5939234629397119869}
+  slotImage: {fileID: 3292480219397684820}
+  equipImage: {fileID: 5169641229342682113}
 --- !u!114 &5939234629397119869
 MonoBehaviour:
   m_ObjectHideFlags: 0
