@@ -1,6 +1,6 @@
-
 using System.Collections.Generic;
 
+//저장이 필요한 Player데이터
 public class PlayerData
 {
     public string name;

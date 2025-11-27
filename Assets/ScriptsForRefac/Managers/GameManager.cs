@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
@@ -24,12 +21,12 @@ public class GameManager : Singleton<GameManager>
         
     }
     
+    //플레이어 검사 및 카메라 생성
     private void InspectPlayer()
     {
         if (player == null)
         {
             //플레이어 객체가 없을 경우
-            //GameObject newPlayer = new GameObject("Player");
             GameObject newPlayerPrefab = Resources.Load<GameObject>("Prefabs/Player/Player"); 
             var playerObject = Instantiate(newPlayerPrefab);
             player = playerObject.AddComponent<Player>();
@@ -41,7 +38,7 @@ public class GameManager : Singleton<GameManager>
         }
         
         GameObject cameraOrbitPrefab = Resources.Load<GameObject>("Prefabs/Camera/CameraOrbit");
-        var cameraOrbitObject = Instantiate(cameraOrbitPrefab);
+        Instantiate(cameraOrbitPrefab);
     }
     
     //종료 시 데이터 저장

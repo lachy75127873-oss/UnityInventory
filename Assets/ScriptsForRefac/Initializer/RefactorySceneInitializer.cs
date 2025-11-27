@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RefactorySceneInitializer : MonoBehaviour, Initializer
@@ -12,7 +10,9 @@ public class RefactorySceneInitializer : MonoBehaviour, Initializer
         AboutGameManager();
         AboutUIManager();
     }
-    
+
+    #region 매니저 초기화
+
     private void AboutGameManager()
     {
         var gameManager = GameManager.Instance;
@@ -43,5 +43,8 @@ public class RefactorySceneInitializer : MonoBehaviour, Initializer
             Debug.Log("UI매니저 초기화 완료");
         }
     }
+    
+
+    #endregion
     
 }

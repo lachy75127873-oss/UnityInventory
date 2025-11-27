@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,6 +23,7 @@ public class ItemDataBase : Singleton<ItemDataBase>
         return itemDictionary[id];
     }
     
+    //아이템 데이터 검사용
     public bool TryGetItem(int id, out ItemData item)
     {
         if (itemDictionary == null)

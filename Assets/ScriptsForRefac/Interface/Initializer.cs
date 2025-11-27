@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+//씬별 초기화용 initializer
 interface Initializer
 {
     public void Initialize();   

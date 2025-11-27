@@ -1,9 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-
+//스텟 아이콘 저장용
 [CreateAssetMenu(fileName = "StatImages")]
 public class StatImageData :ScriptableObject
 {
