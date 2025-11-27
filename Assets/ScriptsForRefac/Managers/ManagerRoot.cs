@@ -37,5 +37,5 @@ public class ManagerRoot :Singleton<ManagerRoot>
             initializer.Initialize();
         }
     }
-    
+
 }

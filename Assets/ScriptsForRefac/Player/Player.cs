@@ -42,19 +42,22 @@ public class Player : MonoBehaviour
         var loadedData = ManagerRoot.Instance.dataManager.LoaPlayerData();
         if (loadedData != null)
         {
-            //해당 데이터를 player에게 주입
+            //저장 데이터를 player에게 주입
             playerData = loadedData;
             Debug.Log(playerData.name+"/"+playerData.rank+ "/"+playerData.description + "/"+playerData.level + "/"+playerData.exp + "/"+playerData.gold);
+            //플레이어 스탯 세팅
+            SetPlayerCondition();
         }
         else
         {
-            //플레이어 초기값으로 세팅해라
+            //플레이어 초기값으로 세팅
             SetFirstPlayer();
             Debug.Log(playerData.name+"/"+playerData.rank+ "/"+playerData.description + "/"+playerData.level + "/"+playerData.exp + "/"+playerData.gold);
         }
 
     }
 
+    //저장값이 없을 경우 플레이어 정보
     private void SetFirstPlayer()
     {
         playerInventory = new Dictionary<int, int>();
@@ -67,6 +70,7 @@ public class Player : MonoBehaviour
 
     #endregion
     
+    //기본 인밴토리 설정
     private void SetPlayerInventory()
     {
         playerInventory.Add(ItemDataBase.Instance.GetItem(1001).idx,1);
@@ -79,7 +83,8 @@ public class Player : MonoBehaviour
         //     Debug.Log(kv.Key+"/"+kv.Value);
         // }
     }
-
+    
+    //플레이어 기본 스텟 설정
     private void SetBasicPlayerCondition()
     {
         var pCd = new PlayerCondition();
@@ -92,10 +97,15 @@ public class Player : MonoBehaviour
 
     private void SetPlayerCondition()
     {
+        //기본 값
+        SetBasicPlayerCondition();
+        playerInventory = playerData.inventory;
+        //인벤토리 정보 주입
+
         /*
-         * 기본 스탯에 
+         * 기본 스탯에
          * 인벤토리-장비 장착 상태에 따른 스탯 변화 반영 매서드
-         */ 
+         */
     }
     
 }

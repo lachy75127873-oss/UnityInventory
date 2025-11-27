@@ -6,11 +6,13 @@ using UnityEngine.UI;
 
 public class StatusSlot : MonoBehaviour
 {
+    [SerializeField] private StatImageData _statImageData;
+    
     [SerializeField] private TextMeshProUGUI nameTxt;
     [SerializeField] private TextMeshProUGUI valueTxt;
-    [SerializeField] private RawImage icon;
+    [SerializeField] private Image icon;
 
-    public RawImage statusIcon;
+    public Image statusIcon;
     public string statusName;
     public int statusValue;
 
@@ -19,7 +21,7 @@ public class StatusSlot : MonoBehaviour
     {
         nameTxt.text = statusName;
         valueTxt.text = statusValue.ToString();
-        //icon.texture = statusIcon.texture;
+        icon.sprite = _statImageData.GetIcon(statusName);
     }
     
 }
